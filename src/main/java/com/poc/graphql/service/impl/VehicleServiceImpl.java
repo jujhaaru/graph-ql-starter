@@ -15,9 +15,9 @@ import com.poc.graphql.service.VehicleServie;
 @Service
 public class VehicleServiceImpl implements VehicleServie {
 
-	private final VehicleRepository vehicleRepository;
+	private VehicleRepository vehicleRepository;
 
-	public VehicleServiceImpl(final VehicleRepository vehicleRepository) {
+	public VehicleServiceImpl(VehicleRepository vehicleRepository) {
 		this.vehicleRepository = vehicleRepository;
 	}
 

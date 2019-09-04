@@ -1,0 +1,31 @@
+type Vehicle {
+    id: ID!,
+    type: String,
+    modelCode: String,
+    brandName: String,
+    launchDate: String
+}
+
+type Person {
+    id: ID!,
+    name: String,
+    age: Int,
+    add:[Address]
+}
+
+type Address {
+    person:ID!,
+    streetName:String,
+    houseNumber:String, 
+}
+
+type Query {
+    vehicles(count: Int):[Vehicle]
+    vehicle(id: ID):Vehicle
+    persons(count:Int):[Person]
+    person(id:ID):Person
+}
+type Mutation {
+createVehicle(type: String!, modelCode: String!, brandName: String, launchDate: String):Vehicle
+writePerson(name: String , age: Int, add:[Address]):Person!
+}

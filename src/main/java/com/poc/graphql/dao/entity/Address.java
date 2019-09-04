@@ -1,41 +1,41 @@
 package com.poc.graphql.dao.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
-@EqualsAndHashCode
 @Entity
+@EqualsAndHashCode
 @NoArgsConstructor
-public class Vehicle implements Serializable {
+public class Address implements Serializable{
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "ID", nullable = false)
+	@JoinColumn(name = "id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@ManyToOne
+	private Person person;
+	
+	@Column(name = "street_name")
+	private String streetName;
 
-	@Column(name = "type", nullable = false)
-	private String type;
+	@Column(name = "house_No")
+	private String houseNumber;
 
-	@Column(name = "model_code", nullable = false)
-	private String modelCode;
-
-	@Column(name = "brand_name")
-	private String brandName;
-
-	@Column(name = "launch_date")
-	private LocalDate launchDate;
 
 }
