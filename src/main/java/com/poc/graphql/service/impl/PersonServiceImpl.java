@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.poc.graphql.dao.entity.Address;
 import com.poc.graphql.dao.entity.Person;
 import com.poc.graphql.dao.repository.PersonRepository;
 import com.poc.graphql.service.PersonService;
@@ -41,9 +40,8 @@ public class PersonServiceImpl implements PersonService {
 		return allPeople;
 	}
 
-	public Person writePerson(final String name, final int age, final List<Address> add) {
+	public Person writePerson(final String name, final int age) {
 		Person entity = new Person();
-		entity.setAdd(add);
 		entity.setName(name);
 		entity.setAge(age);
 		personRepository.save(entity);

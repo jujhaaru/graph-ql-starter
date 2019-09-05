@@ -1,13 +1,12 @@
 package com.poc.graphql.dao.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,6 +25,7 @@ public class Person implements Serializable {
 
 	@Id
 	@Column(name = "id", nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@Column(name = "name")
@@ -33,8 +33,5 @@ public class Person implements Serializable {
 
 	@Column(name = "age")
 	private int age;
-
-	@OneToMany(mappedBy = "person", cascade = { CascadeType.ALL })
-	private List<Address> add;
 
 }

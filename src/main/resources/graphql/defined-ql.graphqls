@@ -9,16 +9,8 @@ type Vehicle {
 type Person {
     id: ID!,
     name: String,
-    age: Int,
-    add:[Address]
+    age: Int
 }
-
-type Address {
-    person:ID!,
-    streetName:String,
-    houseNumber:String, 
-}
-
 type Query {
     vehicles(count: Int):[Vehicle]
     vehicle(id: ID):Vehicle
@@ -27,5 +19,5 @@ type Query {
 }
 type Mutation {
 createVehicle(type: String!, modelCode: String!, brandName: String, launchDate: String):Vehicle
-writePerson(name: String , age: Int, add:[Address]):Person!
+writePerson(name: String , age: Int):Person!
 }
