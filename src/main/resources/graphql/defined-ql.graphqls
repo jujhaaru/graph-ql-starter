@@ -11,6 +11,7 @@ type Person {
     name: String,
     age: Int
 }
+
 type Query {
     vehicles(count: Int):[Vehicle]
     vehicle(id: ID):Vehicle
