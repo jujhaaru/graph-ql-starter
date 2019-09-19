@@ -11,14 +11,21 @@ type Person {
     name: String,
     age: Int
 }
+type Language{
+    id: ID!,
+    name: String
+}
 
 type Query {
     vehicles(count: Int):[Vehicle]
     vehicle(id: ID):Vehicle
     persons(count:Int):[Person]
     person(id:ID):Person
+    language(id: ID):Language
+    allLanguages(count:Int):[Language]
 }
 type Mutation {
 createVehicle(type: String!, modelCode: String!, brandName: String, launchDate: String):Vehicle
 writePerson(name: String , age: Int):Person!
+addLanguage(name: String ):Language!
 }
