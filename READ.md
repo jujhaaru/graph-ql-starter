@@ -32,3 +32,11 @@ mutation {
     id
   }
 }
+ * Complex Mutation Object
+ 
+  mutation{
+    addPost(title:"Cest e Lavie",likes:35,comments:"good article",lang:{id:"5d860d3f0188043ea06e0ddd",name:"French"}) {
+      id
+    }
+    
+  }

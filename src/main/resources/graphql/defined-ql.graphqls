@@ -11,10 +11,17 @@ type Person {
     name: String,
     age: Int
 }
+
+input LanguageInput{
+    id: ID!,
+    name: String
+}
+
 type Language{
     id: ID!,
     name: String
 }
+
 type Author{
     id:ID!,
     authorName:String,
@@ -48,8 +55,29 @@ type Mutation {
         brandName: String,
         launchDate: String
         ):Vehicle
-    writePerson(name: String , age: Int):Person!
-    addLanguage(name: String ):Language!
-    addPost(title:String,likes:Int,comments:String,lang:Language!):Post!
-    addAuthor(authorName:String,age:Int,writesIn:[Language]):Author!
+
+    writePerson(
+        name: String ,
+        age: Int
+    ):Person!
+
+
+    addLanguage(
+        name: String
+    ):Language!
+
+
+    addPost(
+        title:String,
+        likes:Int,
+        comments:String,
+        lang:LanguageInput
+    ):Post!
+
+
+    addAuthor(
+        authorName:String,
+        age:Int,
+        writesIn:[LanguageInput]
+    ):Author!
 }
