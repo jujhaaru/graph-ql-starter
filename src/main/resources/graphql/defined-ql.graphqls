@@ -15,6 +15,21 @@ type Language{
     id: ID!,
     name: String
 }
+type Author{
+    id:ID!,
+    authorName:String,
+    age:Int,
+    writesIn:[Language]!,
+    posts:[Post]!
+ }
+
+type Post{
+    id:ID!,
+	title:String,
+	likes:Int,
+	comments:String
+	lang:Language!
+}
 
 type Query {
     vehicles(count: Int):[Vehicle]
@@ -23,9 +38,18 @@ type Query {
     person(id:ID):Person
     language(id: ID):Language
     allLanguages(count:Int):[Language]
+    checkAuthor(id:ID):Author
 }
 type Mutation {
-createVehicle(type: String!, modelCode: String!, brandName: String, launchDate: String):Vehicle
-writePerson(name: String , age: Int):Person!
-addLanguage(name: String ):Language!
+
+    createVehicle(
+        type: String!,
+        modelCode: String!,
+        brandName: String,
+        launchDate: String
+        ):Vehicle
+    writePerson(name: String , age: Int):Person!
+    addLanguage(name: String ):Language!
+    addPost(title:String,likes:Int,comments:String,lang:Language!):Post!
+    addAuthor(authorName:String,age:Int,writesIn:[Language]):Author!
 }
