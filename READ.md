@@ -18,13 +18,14 @@ query {
 }
 
 
+
 ```Mutation```
 
 Provides crud details
 
 ######
 
-*Vehicle Object Creation
+* Vehicle Object Creation
 
 mutation {
   createVehicle(type: "car", modelCode: "XYZ0192", brandName: "XYZ", launchDate: "2016-08-16") 
@@ -40,3 +41,7 @@ mutation {
     }
     
   }
+
+* Caching the Queries
+   
+   ![alt text](src/main/resources/CachedQuery.JPG)

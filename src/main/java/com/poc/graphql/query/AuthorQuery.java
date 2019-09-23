@@ -17,4 +17,9 @@ public class AuthorQuery implements GraphQLQueryResolver {
     public Optional<Author> checkAuthor(final String id){
         return this.authService.checkAuthor(id);
     }
+
+    public String  sayHello(final String name){
+        return  "hello "+name;
+
+    }
 }

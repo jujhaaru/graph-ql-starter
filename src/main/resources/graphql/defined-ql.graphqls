@@ -46,6 +46,7 @@ type Query {
     language(id: ID):Language
     allLanguages(count:Int):[Language]
     checkAuthor(id:ID):Author
+    sayHello(name:String):String
 }
 type Mutation {
 
