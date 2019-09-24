@@ -3,6 +3,7 @@ package com.poc.graphql.service.impl;
 import com.poc.graphql.dao.entity.Language;
 import com.poc.graphql.dao.repository.LanguageRepo;
 import com.poc.graphql.service.LanguageService;
+import com.poc.graphql.utilities.NextSequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,9 @@ public class LanguageServiceImpl implements LanguageService {
 
     @Autowired(required = true)
     private LanguageRepo languageRepo;
+
+    @Autowired
+    private NextSequenceService nextSequence;
 
     @Override
     @Transactional(readOnly = true)
@@ -37,6 +41,7 @@ public class LanguageServiceImpl implements LanguageService {
     public Language addLanguage(final String name){
         Language lang=new Language();
         lang.setName(name);
+        lang.setId(nextSequence.getNextSequences("langSequence"));
         languageRepo.save(lang);
         return lang;
     }

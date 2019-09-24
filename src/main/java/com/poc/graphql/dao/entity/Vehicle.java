@@ -17,10 +17,10 @@ public class Vehicle implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
+	private Long id;
 	private String type;
 	private String modelCode;
 	private String brandName;
-	private LocalDate launchDate;
+	private String launchDate;
 
 }
