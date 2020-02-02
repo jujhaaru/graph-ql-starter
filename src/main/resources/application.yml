@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: custom-graph-ql
+  data:
+    mongodb:
+      database: graphql
+
+server:
+  port: 9191
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/,http://localhost:8763/eureka/
+    fetchRegistry: true
+    register-with-eureka: true
+
+
+---
